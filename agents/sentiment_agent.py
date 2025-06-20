@@ -1,20 +1,24 @@
-from pydantic_ai.agent import AIAgent
 from pydantic import BaseModel
 from agents.schemas import TicketInput
+from agents.base_agent import AIAgent  # Use custom one
 
 class SentimentOutput(BaseModel):
-    sentiment: str               # positive, neutral, negative
-    urgency_level: str           # low, medium, high
-    emotional_intensity: str     # calm, moderate, intense
+    sentiment: str
+    urgency_level: str
+    emotional_intensity: str
 
 class SentimentAgent(AIAgent[TicketInput, SentimentOutput]):
+    output_model = SentimentOutput
     prompt_template = """
-    Analyze the following customer support ticket and respond with:
-    1. Sentiment (positive, neutral, negative)
-    2. Urgency level (low, medium, high)
-    3. Emotional intensity (calm, moderate, intense)
+    Analyze the following customer support ticket and respond with a JSON object like:
+    {
+        "sentiment": "...",
+        "urgency_level": "...",
+        "emotional_intensity": "..."
+    }
 
     Subject: {subject}
     Message: {message}
     """
+
 
