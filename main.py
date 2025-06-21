@@ -6,7 +6,7 @@ from agents.schemas import TicketInput, CombinedTicket
 def process_ticket(ticket: TicketInput):
     sentiment_agent = SentimentAgent()
     sentiment_result = sentiment_agent.run(ticket)
-    print("\n🎭 Sentiment Output for", ticket.ticket_id, ":", sentiment_result)
+    print("\n Sentiment Output for", ticket.ticket_id, ":", sentiment_result)
 
     combined = CombinedTicket(
         **ticket.model_dump(),
@@ -17,7 +17,7 @@ def process_ticket(ticket: TicketInput):
 
     routing_agent = RoutingAgent()
     routing_result = routing_agent.run(combined)
-    print("📦 Routing Output for", ticket.ticket_id, ":", routing_result)
+    print(" Routing Output for", ticket.ticket_id, ":", routing_result)
 
 # All 5 official test cases
 test_cases = [
