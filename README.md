@@ -28,23 +28,5 @@ Each agent performs one specific role in a chain of intelligent reasoning. The o
 | HR / Hiring       | Screen applicants based on form + message tone |
 | EdTech            | Auto-respond to student queries with routing   |
 
----
 
-## System Architecture
-Raw Input ➡️ SentimentAgent ➡️ CombinedTicket ➡️ RoutingAgent ➡️ Final Decision
-## Folder Structure
-your-name-case-study/
-├── main.py # Entry point: runs all agents
-├── agents/
-│ ├── base_agent.py # Reusable AIAgent class
-│ ├── sentiment_agent.py # Agent 1: Extracts sentiment & urgency
-│ ├── routing_agent.py # Agent 2: Makes final decision
-│ └── schemas.py # Input/output data models
-├── evaluation/
-│ ├── test_cases.py # Sample ticket inputs
-│ ├── run_tests.py # Run all test cases
-│ └── metrics.py # (Optional) Summary reports
-├── docs/
-│ └── architecture.md # Full architecture + prompt design
-├── ai_chat_history.txt # Full chat with AI (for transparency)
-└── README.md # This file
+
